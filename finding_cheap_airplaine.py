@@ -73,7 +73,31 @@ def find_cheapest_flights(flight_info):
 
 
     #-----------------Complete going to portion---------
-    
+    going_to_xpath = '//button[@aria-label="Going to"]'
+    going_to_element = WebDriverWait(driver, 5).untill(
+        EC.presence_of_element_located((By.XPATH, going_to_xpath))
+    )
+    going_to_element.clear
+    going_to_element.click()
+    time.sleep(1)
+    going_to_element.send_keys(going_to)
+
+    time.sleep(1) # needed otherwise too fast for the browser 
+    going_to_element.send_keys(Keys.Down, Keys.RETURN) #this will go down on items and click it
+    #----------------------complete going to-------------------
+
+
+    #-------------Depature Date portion-------------------
+    departing_box_xpath = '//button[contains(@aria-label,"Departing")]'
+    depart_box_element=WebDriverWait(driver,5).untill(
+        EC.presence_of_element_located((BY.XPATH, departing_box_expath))
+    )
+    depart_box_element.clear
+    depart_box_elemet.click()
+    time.sleep(2)
+
+    #find the current date. Will arrow through too
+    trip_date_xpath= 
 
     
 
